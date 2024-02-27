@@ -1,0 +1,52 @@
+A brief introduction to tmux
+
+What is it?
+
+tmux is a terminal multiplexer.  It allows a user to run multiple windows, and manipulate them out of a single ssh or console session.  This can be very useful in limited access situations.  It also allows for the continuation of a session, even if it is accidentally cut off.  
+
+Sound interesting?  Let's start with how to install tmux.
+
+On most versions of Linux, it's in the repositories, so installing is easy:
+
+Redhat and similar distros:  
+
+yum install tmux or dnf install tmux
+
+Debian/Ubuntu and similar:
+
+apt install tmux
+
+These commands also tend to work on WSL, if that's where you're trying this from.
+
+On the Mac, either Homebrew or MacPorts are the way to install.
+
+
+
+Getting started with tmux.
+
+To start tmux, simply type tmux at a command prompt.
+
+You'll see a command prompt, just like before, but at the bottom of the window, you'll notice that there's a status barwith the current command, the hostname, and the time and date.
+
+This is the baisc screen, to activate tmux, you need the command key which is:  ctrl-b  This, followed by a command is what allows you to utilize tmux's power.
+
+Let me show you one of tmux's best features, the one that makes it essential for me.  If we start a session, and run a program, normally is something happens, like your laptop going to sleep, or other bad connection, you lose your session, along with the program you were running shutting down.  With tmux, if you lose your connection, the programs you started keep running in the background, and you can re-establish your connection to the server, and pick up right where you left off.
+
+You can disconnect purposely with ctrl-b d .  When you reconnect, you can start tmux with the command tmux a, and it will pick up your exisiting session.
+
+So, if this hasn't convinced you, we have some ways to make the terminal that you're using richer, and more capable.
+
+Once you have started tmux, you can open new windows, each with its own prompt, and each can run an appication of its own.  With ctrl-b c, you can create a new window.  ctrl-b p and n go to the previous, and next window, repsectively.   ctrl-b # brings you directly to the numbered window.
+
+Furthermore, you can split the windows into different panes, horizontally with ctrl-b % and horizontally with  
+ctrl-b "
+
+There are tons of command to resize and select between windows (show help screen for examples)
+
+
+
+Copy mode allows you to cut and paste information within tmux sessions.  Ctrl-b [ starts copy mode, ctrl-b ] pastes.  Select text to copy with XXXXXX 
+
+
+
+You can split the screen into two or more views 
