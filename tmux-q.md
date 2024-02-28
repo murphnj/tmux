@@ -28,15 +28,20 @@ On most versions of Linux, it's in the repositories, so installing is easy:
 
 Redhat and similar distros:
 
-`yum install tmux or dnf install tmux`
+`yum install tmux` or `dnf install tmux`
 
 Debian/Ubuntu and similar:
 
 `apt install tmux`
 
-These commands also tend to work on WSL, if that's where you're trying this from.
+Arch and similar:
+
+`pacman -S tmux`
+
+These commands also tend to work on WSL, if that's where you're trying this from, use the Linux command corresponding to the distro you're using.
 
 On the Mac, either Homebrew or MacPorts are the way to install.
+`brew install tmux`  or `port install tmux`
 
 ---
 
@@ -56,7 +61,7 @@ One useful trick is `ctrl-b ?` , which brings up the help screen.
 
 Let me show you one of tmux's best features, the one that makes it essential for me.  If we start a session, and run a program, normally is something happens, like your laptop going to sleep, or other bad connection, you lose your session, along with the program you were running shutting down.  With tmux, if you lose your connection, the programs you started keep running in the background, and you can re-establish your connection to the server, and pick up right where you left off.
 
-You can disconnect purposely with `ctrl-b d` .  When you reconnect, you can start tmux with the command tmux a, and it will pick up your exisiting session.
+You can disconnect purposely with `ctrl-b d` .  When you reconnect, you can start tmux with the command `tmux a`, and it will pick up your existing session.
 
 ---
 
@@ -74,10 +79,10 @@ Once you have started tmux, you can open new windows, each with its own prompt, 
 
 # Split Panes
 
-Furthermore, you can split the windows into different panes, horizontally with `ctrl-b %` and horizontally with
-`ctrl-b`
+Furthermore, you can split the windows into different panes, horizontally with `ctrl-b %` and horizontally with `ctrl-b "`
 There are tons of commands to resize and select between windows (show help screen for examples)
 
+You can move between panes with `ctrl-b o` or `ctrl-b <arrow key>` and get rid of a pane with `ctrl-b x`
 
 
 
@@ -86,12 +91,40 @@ There are tons of commands to resize and select between windows (show help scree
 
 # Copy and Paste
 
-Copy mode allows you to cut and paste information within tmux sessions.  `Ctrl-b [` starts copy mode, `ctrl-b ]` pastes.  Start selecting text to copy with `ctrl-space`, and end the selection with `ctrl-w`.  You can then go to another window or pane, and use `ctrl-b ]` to paste the text
+Copy mode allows you to cut and paste information within tmux sessions.  ctrl-b [ starts copy mode.  Start selecting text to copy with `ctrl-space`, and end the selection with `ctrl-w`.  You can then go to another window or pane, and use `ctrl-b ]` to paste the text
 
 This can be really useful when using a system where you don't have the ability to cut and copy text with the mouse, for example, on a tty on a Linux system, or on the console on a VMware server.  This can be a lifesaver.
 
+There are many options for cutting and pasting text, this was just a few basics.
+
 ---
 
+# Mouse support
 
+If you have a system that supports it, you can enable the mouse in tmux with the following:
 
+`ctrl-b :`  (Which enters command mode) and then `:set -g mouse on` at the prompt
 
+This allows selection of the current pane with the mouse selecting text, and bringing up some menus with the right mouse button.
+
+# Configuration
+
+I found it a little funny that most of guides for tmux that I found almost immediately go into how to remap the keys that make it work.  For this presentation, I have exclusively used the default keybindings, but I can see that some customization may make things easier.
+
+tmux has a robust set of configuration options available so that it can start up in nearly any way that you see fit, from the colors, to the taskbar to any key combination shown.
+
+---
+
+# Conclusion and questions
+
+tmux is a very powerful and useful tool for making a command line connection as flexible and configurable as most graphical environments.  The ability to leave and reattach to a running session makes it an invaluable tool for working with remote systems.
+
+If you want to contact me with questions or constructive criticism, please do:
+
+You can ask questions via email at **murph@weirdness.com** or on The Fediverse with Mastodon at
+
+**https://hackers.town/@murph** or **https://gardenstate.social/@murph**
+
+# Thank you, and I'm open for questions.
+
+The slides are at **https://murphnj.neocities.org**
